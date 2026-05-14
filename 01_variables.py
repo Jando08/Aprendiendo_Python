@@ -51,3 +51,4 @@ address: str = 'Mi direccion es: '
 address = 32
 print(address)
 #las variables en python toman el ultimo valor que se les asigna
+#xd
