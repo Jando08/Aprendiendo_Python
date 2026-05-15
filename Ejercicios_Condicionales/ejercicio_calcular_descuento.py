@@ -17,3 +17,6 @@ elif compra_sin_descuento > 50:
     mensaje = f'Felicidades, tienes un descuento del 10%. El total de tu compra con descuento es: {compra_con_descuento}'
 else:
     mensaje = f'Lo sentimos, no tienes descuento. El total de tu compra es: {compra_sin_descuento}'
+
+#imprimir mensaje
+print(mensaje)
