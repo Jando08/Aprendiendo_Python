@@ -17,3 +17,4 @@ resultado = invitados.append(nuevo_invitado)
 #imprimir resultado
 print(invitados)
 print(f'El nuevo invitado a la fiesta a sido {nuevo_invitado}')
+
