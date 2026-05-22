@@ -14,3 +14,5 @@ resultado = frutas.get(fruta, 'No disponible')
 
 #imprimir resultado final
 print(f'El precio de la fruta {fruta}: {resultado}')
+
+print('Hola amigos de youtube')
