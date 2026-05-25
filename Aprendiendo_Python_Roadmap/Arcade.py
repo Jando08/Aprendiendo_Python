@@ -28,3 +28,12 @@ else:
 
 # Imprimir mensaje dependiendo del resultado
 print(mensaje)
+
+edad_texto = "25"
+# edad_operada = edad_texto + 5  <- ¡Esto daría un ERROR gigante!
+
+# Conversión manual:
+edad_numero = int(edad_texto)
+edad_operada = edad_numero + 5  # Ahora sí da 30
+
+
