@@ -11,10 +11,14 @@
             "id": "82d08d9cd9a18ddf",
             "type": "leaf",
             "state": {
-              "type": "graph",
-              "state": {},
-              "icon": "lucide-git-fork",
-              "title": "Vista gráfica"
+              "type": "markdown",
+              "state": {
+                "file": "05_Manejo de Archivos.md",
+                "mode": "source",
+                "source": false
+              },
+              "icon": "lucide-file",
+              "title": "05_Manejo de Archivos"
             }
           },
           {
@@ -189,9 +193,14 @@
   },
   "active": "82d08d9cd9a18ddf",
   "lastOpenFiles": [
+    "Pasted image 20260603221318.png",
+    "Pasted image 20260603221244.png",
+    "Pasted image 20260603215754.png",
+    "Pasted image 20260603215628.png",
+    "Pasted image 20260603215508.png",
+    "Python Roadmap.md.md",
     "01_Variables y Tipos de Datos.md",
     "01_Variables y Tipos de Datos.md.md",
-    "Python Roadmap.md.md",
     "05_Manejo de Archivos.md",
     "04_Manejo de Errores.md",
     "03_Funciones.md",
