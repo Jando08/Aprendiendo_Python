@@ -6,3 +6,4 @@ print('Lista del Draft guardada con exito ')
 
 
 
+print('Farmeando commits')
