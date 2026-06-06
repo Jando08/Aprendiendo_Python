@@ -4,11 +4,11 @@
     "type": "split",
     "children": [
       {
-        "id": "a1f67680579b44fa",
+        "id": "378270a8880a9396",
         "type": "tabs",
         "children": [
           {
-            "id": "82d08d9cd9a18ddf",
+            "id": "0d2c91753f5d2058",
             "type": "leaf",
             "state": {
               "type": "markdown",
@@ -19,16 +19,6 @@
               },
               "icon": "lucide-file",
               "title": "05_Manejo de Archivos"
-            }
-          },
-          {
-            "id": "40a02ec828a04b3b",
-            "type": "leaf",
-            "state": {
-              "type": "graph",
-              "state": {},
-              "icon": "lucide-git-fork",
-              "title": "Vista gráfica"
             }
           }
         ]
@@ -191,8 +181,11 @@
       "bases:Crear nueva base": false
     }
   },
-  "active": "82d08d9cd9a18ddf",
+  "active": "0d2c91753f5d2058",
   "lastOpenFiles": [
+    "05_Manejo de Archivos.md",
+    "Pasted image 20260605181456.png",
+    "Pasted image 20260605181408.png",
     "Pasted image 20260603221318.png",
     "Pasted image 20260603221244.png",
     "Pasted image 20260603215754.png",
@@ -201,7 +194,6 @@
     "Python Roadmap.md.md",
     "01_Variables y Tipos de Datos.md",
     "01_Variables y Tipos de Datos.md.md",
-    "05_Manejo de Archivos.md",
     "04_Manejo de Errores.md",
     "03_Funciones.md",
     "02_Estructuras de Control.md"

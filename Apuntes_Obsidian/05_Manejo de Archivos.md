@@ -100,3 +100,63 @@ Python tiene un método hermano de `.write()` llamado **`.writelines()`** (en pl
     
 - **✔️ Solución:** Por lo general, en archivos de datos esto no es un problema. Pero si necesitas que quede perfecto, la Opción 1 es la más fácil de adaptar con un `if` para controlar el último elemento.
 
+# 📑 Apunte de Obsidian: Lectura de Archivos en Python
+
+La lectura de archivos nos permite recuperar datos almacenados permanentemente en el disco duro (como listas de jugadores, configuraciones o registros) y cargarlos en la memoria del programa para procesarlos.
+
+## 🎯 ¿Para qué sirve? (Información Importante)
+
+Al igual que para escribir, usamos la estructura segura `with open()`, pero esta vez cambiamos el modo a **`"r"`** (_Read_, que significa leer en inglés). Al leer un archivo, Python nos ofrece diferentes métodos dependiendo de si queremos todo el texto junto o separado línea por línea.
+
+## ⚙️ Características y Métodos de Lectura
+
+Python tiene tres herramientas principales para extraer la información. Cada una tiene un comportamiento único:
+
+### 1. El método `.read()` (Todo de golpe)
+
+Lee absolutamente todo el contenido del archivo y lo transforma en un **único String (texto largo)**, incluyendo los saltos de línea invisibles.
+
+- **Ideal para:** Archivos cortos o cuando solo quieres mostrar el contenido en pantalla idéntico a como está en el bloc de notas.
+    
+
+### 2. El método `.readlines()` (Convertir en Lista)
+
+Lee el archivo completo, pero **lo divide línea por línea y te devuelve una Lista de Python**. Cada renglón del archivo se convierte en un elemento de la lista.
+
+- **Ideal para:** Volver a meter datos masivos (como tu lista de jugadores) dentro de una estructura limpia de Python para usarla con ciclos `for`.
+    
+- _Nota:_ Los elementos de la lista mantendrán el carácter `\n` al final de cada renglón.
+    
+
+### 3. El ciclo `for` directo sobre el archivo (Línea por línea eficiente)
+
+En lugar de cargar todo el archivo en la memoria ram de golpe, puedes recorrer el archivo directamente con un `for`.
+
+- **Ideal para:** Archivos gigantescos (de miles de líneas) porque lee un renglón, lo procesa, lo borra de la memoria y pasa al siguiente.
+    
+
+## 🚦 Normas y Sintaxis Básica
+
+El modo por defecto de `open()` es precisamente `"r"`. Si no pones ninguna letra, Python asumirá que vas a leer. Sin embargo, por buena práctica siempre se escribe de forma explícita:
+![[Pasted image 20260605181408.png]]
+
+## ⚠️ Errores Comunes y Soluciones
+
+Al leer archivos, el más mínimo error en el nombre o la ubicación romperá el código. Aquí están los fallos típicos:
+
+### 1. `FileNotFoundError: [Errno 2] No such file or directory`
+
+- **¿Por qué ocurre?:** Es el error más común de todos. Ocurre cuando le pides a Python que lea un archivo que **no existe** en esa carpeta o escribiste mal el nombre (ej. pusiste `campeon.txt` en lugar de `campeones.txt`).
+    
+- **✔️ Solución:** Asegúrate de que el archivo esté exactamente en la misma carpeta desde donde estás corriendo tu terminal o usa una ruta completa. También puedes proteger este código con un escudo **`try/except FileNotFoundError`** que aprendiste en [[04_Manejo de Errores]].
+    
+
+### 2. Texto con espacios vacíos extraños al imprimir
+
+- **¿Por qué ocurre?:** Si usas `.readlines()` o un ciclo `for`, cada renglón trae consigo el "Enter" invisible (`\n`). Si usas `print()`, que por defecto añade su propio salto de línea, tus datos se verán con un renglón en blanco de separación.
+    
+- **✔️ Solución:** Usa el método de texto `.strip()` al imprimir. Este método limpia los espacios y los `\n` que estén a las orillas del texto.
+
+
+![[Pasted image 20260605181456.png]]
+
