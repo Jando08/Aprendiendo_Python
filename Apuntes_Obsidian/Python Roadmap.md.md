@@ -8,6 +8,7 @@ Este es el mapa central de mi aprendizaje en Python. Desde aquí controlo los te
 * [[03_Funciones]] - Bloques de código reutilizables y scope.
 * [[04_Manejo de Errores]] - Cómo ponerle escudos (`try/except`) al código.
 * [[05_Manejo de Archivos]] - Guardar datos permanentemente en el disco duro.
+* [[06_Funciones]] - Reutilizar código de manera optimizada
 
 ---
 **Notas Relacionadas:** [[Proyectos NBA]]
