@@ -160,3 +160,52 @@ Al leer archivos, el más mínimo error en el nombre o la ubicación romperá el
 
 ![[Pasted image 20260605181456.png]]
 
+# 📑 Apunte de Obsidian: El Modo Append en Python
+
+El modo Append (añadir o adjuntar) permite abrir un archivo existente y colocar el puntero de escritura **al final de todo el texto**, garantizando que los datos viejos no se borren y los nuevos se agreguen abajo.
+
+## 🎯 ¿Para qué sirve? (Información Importante)
+
+A diferencia del modo `"w"` (que destruye el archivo anterior para crear uno en blanco), el modo **`"a"`** respeta el contenido actual. Es el modo que se utiliza en el mundo real para crear **Logs** (registros de eventos de un sistema), bitácoras o listas dinámicas que crecen con el tiempo.
+
+## 🚦 Normas y Sintaxis Básica
+
+La estructura es idéntica a las anteriores, lo único que cambia es la letra del modo a **`"a"`**:
+![[Pasted image 20260606170559.png]]
+
+### 🔍 Comportamiento según el escenario:
+
+1. **Si el archivo YA existe:** Abre el archivo sin borrar nada, se posiciona en el último carácter y escribe lo nuevo.
+    
+2. **Si el archivo NO existe:** Se comporta como el modo `"w"`; crea el archivo desde cero y le mete el texto.
+    
+
+## ⚠️ Errores Comunes y Soluciones
+
+### 1. Texto pegado al último elemento viejo
+
+- **¿Por qué ocurre?:** Si el último elemento que escribiste ayer en tu archivo no tenía un salto de línea (`\n`) al final, el modo `"a"` empezará a escribir exactamente en ese mismo renglón, dejando los datos amontonados.
+    
+- **❌ Resultado visual:** `Anthony DavisD'Angelo Russell`
+    
+- **✔️ Solución:** Asegúrate de que **siempre** que uses `.write()`, tu texto termine con `\n`, para que el archivo quede "preparado" con un renglón abajo listo para recibir más información en el futuro.
+
+## 🛡️ Combinando `with` y `try/except` (Código a Prueba de Balas)
+
+Aunque el bloque `with` cierra el archivo automáticamente, no puede evitar que ocurran errores externos mientras el archivo está abierto (por ejemplo, que el disco duro se llene, que no tengas permisos de administrador para escribir en esa carpeta, o que borren el archivo mientras se procesa).
+
+Para evitar que tu programa explote con letras rojas en la terminal de CachyOS, envolvemos el bloque `with` dentro de un `try/except`.
+
+### 📋 El Código Blindado:
+
+Modifica tu archivo `Registro_Completo.py` para que quede con esta estructura:
+![[Pasted image 20260606171313.png]]
+
+### 🧠 ¿Por qué es una buena práctica?
+
+- Si Python no puede abrir el archivo por problemas del sistema operativo, el programa no se va a congelar; en su lugar, saltará limpiamente al bloque `except` y te dará un mensaje amigable en español.
+    
+- El `print` de éxito ahora solo se ejecuta si el bloque `with` terminó correctamente, asegurando que no le mientas al usuario.
+    
+
+¡Pégalo en tu editor, dale una última calada corriendo el código en tu terminal y ya tienes el tema de manejo de archivos completamente dominado de inicio a fin, bro!
