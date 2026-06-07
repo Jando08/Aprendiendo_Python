@@ -56,3 +56,11 @@ Para crear una función usamos la palabra clave **`def`** (de _define_). Mira la
 
 
 **✔️ Solución:** Asegúrate de cerrar tu función con `return resultado` para que el dato pueda salir al exterior.
+
+## ⚙️ Concepto de Obsidian: Parámetros por Defecto
+
+A veces quieres que una función haga algo de una manera estándar, pero que te dé la opción de cambiarlo si tú quieres. En Python, puedes asignarle un valor "de fábrica" a un parámetro usando el signo `=`.
+
+### 📋 Ejemplo Rápido:
+![[Pasted image 20260606173414.png]]
+

@@ -93,7 +93,8 @@
       }
     ],
     "direction": "horizontal",
-    "width": 300
+    "width": 300,
+    "collapsed": true
   },
   "right": {
     "id": "c7446b9160c3548d",
@@ -197,6 +198,7 @@
   },
   "active": "96a8626940a194ae",
   "lastOpenFiles": [
+    "Pasted image 20260606173414.png",
     "Pasted image 20260606171809.png",
     "Pasted image 20260606171744.png",
     "Pasted image 20260606171720.png",
@@ -211,7 +213,6 @@
     "Pasted image 20260603221318.png",
     "Pasted image 20260603221244.png",
     "Pasted image 20260603215754.png",
-    "Pasted image 20260603215628.png",
     "01_Variables y Tipos de Datos.md",
     "01_Variables y Tipos de Datos.md.md",
     "04_Manejo de Errores.md",
