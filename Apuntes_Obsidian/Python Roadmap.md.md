@@ -9,6 +9,8 @@ Este es el mapa central de mi aprendizaje en Python. Desde aquí controlo los te
 * [[04_Manejo de Errores]] - Cómo ponerle escudos (`try/except`) al código.
 * [[05_Manejo de Archivos]] - Guardar datos permanentemente en el disco duro.
 * [[06_Funciones]] - Reutilizar código de manera optimizada
+* [[07_Diccionarios]] - Permite agrupar toda la informacion de un solo objeto o entidad
+* [[08_Modulararizacion]] - Dividir tu codigo en varios archivos independientes y luego conectarlos entre si.
+* [[09_Introduccion_POO]] - Reutilzar codigo de manera limpia
 
 ---
-**Notas Relacionadas:** [[Proyectos NBA]]
