@@ -97,3 +97,42 @@ Pásate este bloque de sintaxis bien estructurado a tu Obsidian, bro. Analiza c�
 
 ![[Pasted image 20260611170158.png]]
 
+## 🔒 ¿Qué es el Encapsulamiento?
+
+Imagina que compras un coche del año. Tú, como conductor, tienes una interfaz pública para interactuar con él: el volante, los pedales, la pantalla táctil. Pero, ¿a poco el fabricante te deja mover los pistones del motor con la mano mientras manejas? ¡Claro que no! Todo eso viene sellado bajo el cofre para evitar que un usuario cometa un error y destruya el sistema.
+
+En programación es **exactamente lo mismo**. Hasta ahora, todos los atributos que creábamos eran **públicos**. Cualquiera podía venir desde fuera del objeto y destruirte los datos haciendo algo como `mi_carrito.total_a_pagar = -999999`.
+
+El **Encapsulamiento** es la acción de **ocultar o proteger los datos internos** de un objeto para que nadie los pueda modificar directamente por accidente. La única forma de verlos o cambiarlos será a través de métodos seguros que tú mismo vas a programar.
+
+## 🛠️ ¿Cómo se hace en Python? (Los Atributos Privados)
+
+A diferencia de otros lenguajes de programación donde usas palabras raras como `private`, en Python somos más prácticos. Para hacer que un atributo sea **privado** (secreto y protegido), solo tienes que ponerle **dos guiones bajos (`__`)** al principio de su nombre.
+
+![[Pasted image 20260612080106.png]]
+
+¿Viste eso? Al ponerle `__saldo`, Python blinda la variable. Si alguien intenta hackear el saldo desde fuera escribiendo `cuenta.__saldo = 1000000`, Python simplemente lo va a ignorar o va a tronar, protegiendo el dinero del usuario.
+
+## 🚪 ¿Cómo entramos a un atributo privado? (Getters y Setters)
+
+Si el atributo está bajo llave, ¿cómo hacemos para que el usuario pueda ver su saldo o retirar dinero? Usamos **métodos especiales** que funcionan como los guardias de seguridad de la caja fuerte:
+
+1. **Getter (Obtener):** Un método público que sirve únicamente para _leer_ el valor del atributo privado.
+    
+2. **Setter (Establecer):** Un método público que sirve para _modificar_ el valor, pero aplicando validaciones (filtros) antes de guardarlo.
+    
+
+### 💻 El código completo de una clase encapsulada:
+
+![[Pasted image 20260612080143.png]]
+
+## Ejercicio Real
+
+![[Pasted image 20260612082749.png]]
+
+### 🗂️ La Plantilla Sagrada de `@property`
+
+Para que nunca te pierdas, grábate este mapa mental de cómo se estructura la sintaxis. El truco es que **el Getter y el Setter se llaman exactamente igual**, lo único que cambia es la etiqueta (decorador) de arriba:
+![[Pasted image 20260612085721.png]]
+
+
