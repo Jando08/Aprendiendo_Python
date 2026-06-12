@@ -91,3 +91,9 @@ Aquí tienes el script completo de cómo se crean y se usan los objetos:
     
 
 Pásate este bloque de sintaxis bien estructurado a tu Obsidian, bro. Analiza cómo el `__init__` acomoda las piezas y cómo los métodos usan `self` para saber a quién le están sumando los puntos.
+
+
+## Ejercicio Organizador de Tareas
+
+![[Pasted image 20260611170158.png]]
+
