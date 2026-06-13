@@ -33,3 +33,5 @@ print(f"Velocidad actual: {mi_nave.velocidad} km/h")
 # 4. Intentamos meter reversa cuántica o romper la barrera del sonido (Valores inválidos)
 mi_nave.velocidad = -20
 mi_nave.velocidad = 500
+
+
