@@ -136,3 +136,109 @@ Para que nunca te pierdas, grábate este mapa mental de cómo se estructura la s
 ![[Pasted image 20260612085721.png]]
 
 
+## 🧬 ¿Qué es la Herencia en programación?
+
+En la vida real, tú heredas rasgos de tus padres (el apellido, el color de ojos, o ciertas habilidades). En la programación es exactamente igual: **La Herencia permite que una clase nueva adopte los atributos y métodos de una clase que ya existe.**
+
+¿Para qué hacemos esto? Para cumplir la regla de oro del programador: **DRY** (_Don't Repeat Yourself_ o No te repitas a ti mismo). En lugar de escribir el mismo código cinco veces para cinco objetos similares, creas una clase "Padre" con lo básico, y luego las clases "Hijas" le heredan todo lo que tiene, ahorrándote cientos de líneas de código.
+
+## 🧱 El problema de no usar Herencia
+
+Imagina que estás desarrollando un videojuego (por ejemplo, en Godot o puro Python). Tienes dos tipos de personajes: un **Guerrero** y un **Mago**.
+
+Si lo hicieras a la antigüita, tendrías que escribir esto:
+![[Pasted image 20260615065649.png]]
+
+Fíjate cómo el `nombre`, la `vida` y el método `caminar` son **idénticos** en ambas clases. Si después quieres cambiar cómo caminan los personajes, ¡tendrías que modificar el código en las dos clases por separado! Qué hueva, ¿no?
+
+## 🚀 La Solución: Creando la Clase Padre
+
+Con **Herencia**, primero creamos una clase general (el Padre o Súperclase) que contenga lo que todos tienen en común:
+![[Pasted image 20260615065718.png]]
+
+## 🐣 ¿Cómo se hereda en Python? (`super()`)
+
+Para hacer que una clase sea hija de otra, simplemente **ponemos el nombre de la clase padre entre paréntesis** al momento de definir la clase hija.
+
+Además, usamos una función mágica llamada **`super().__init__()`**. Esto le dice a Python: _"Oye, ve con mi padre y ejecuta su constructor primero para que él guarde el nombre y la vida, y yo me encargo de lo mío"_.
+
+### 💻 Mira la magia en código:
+![[Pasted image 20260615065743.png]]
+
+## 📝 La Regla de Oro de los Paréntesis en Python
+
+### 1. Métodos con `@property` (NO llevan paréntesis ❌)
+
+Cuando le pones la etiqueta `@property` arriba a un método, **le estás quitando los paréntesis a la fuerza**.
+
+¿Por qué? Porque `@property` transforma un método para que se comporte como si fuera un **atributo o variable fija**. El usuario solo quiere "ver" o "asignar" el dato, no quiere ejecutar una acción.
+
+- **Para leer:** `print(objeto.mensualidad)`
+    
+- **Para modificar:** `objeto.mensualidad = 500`
+    
+
+### 2. Métodos Tradicionales / Acciones (SÍ llevan paréntesis ✅)
+
+En el código de hoy (con `calcular_pago()` o `encender()`), **no usamos la etiqueta `@property`**. Son métodos tradicionales.
+
+En Python, los paréntesis `()` significan **"¡CORRE O EJECUTA ESTA ACCIÓN AHORA MISMO!"**.
+
+- `calcular_pago()` no es una variable guardada; es un bloque de código que tiene que hacer matemáticas (sumar el sueldo + el bono) justo en ese segundo.
+    
+- Si no le pones los `()`, Python no corre la operación; solo te diría en qué parte de la memoria RAM está guardada la función.
+    
+
+## 💡 El acordeón para tu Obsidian (Visual)
+
+Míralo con este mapa mental rápido:
+
+- **¿Tiene `@property`?** ➡️ Es un estado/atributo. **NO** lleva `()`.
+    
+- **¿Es un método normal (hace una acción)?** ➡️ Es una orden/operación. **SÍ** lleva `()`.
+    
+
+Por eso hoy escribiste `empleado_1.calcular_pago()`, porque le estabas dando la orden al objeto de sacar la calculadora y ponerse a chambear.
+
+## 🧬 ¿Qué es el Polimorfismo?
+
+La palabra viene del griego _Poli_ (muchas) y _Morfismo_ (formas). En programación, significa **la capacidad de tratar a diferentes objetos de la misma manera, y que cada uno responda a su propia forma.**
+
+Imagina que tienes una lista en Python llena de canciones y efectos de sonido (algunos normales y otros retro). En lugar de ir preguntando uno por uno de qué clase son, el Polimorfismo te permite meterlos a todos en un ciclo `for` y gritarle a la lista: **`¡.reproducible()!`**.
+
+Python, de manera automática e inteligente, va a ejecutar el método del padre para los sonidos normales, y el método sobreescrito para los sonidos retro. Tú solo escribes una línea de código, y el programa maneja las "muchas formas" por sí solo.
+
+## 💻 Mira el Polimorfismo en acción
+
+Vamos a usar las mismas clases que acabas de corregir. Mira cómo los metemos a todos al mismo saco (una lista) y los ponemos a chambear con un solo ciclo:
+![[Pasted image 20260615080415.png]]
+
+🕹️ Lo que imprime la terminal:
+![[Pasted image 20260615080445.png]]
+
+En Python, usamos **`super()`** cuando una clase hija quiere **llamar a su clase padre** para reutilizar su código en lugar de volverlo a escribir desde cero.
+
+Lo usamos principalmente en dos situaciones muy específicas, y aquí tienes el resumen exacto para que lo dejes grabado en tu Obsidian:
+
+## 🔑 Los 2 momentos para usar `super()`
+
+### 1. En el Constructor (`__init__`) ➡️ Para heredar atributos
+
+Se usa para heredar los datos básicos que el padre ya sabe cómo guardar (como el `nombre`, la `marca` o el `archivo`). Al usarlo, te ahorras tener que escribir `self.nombre = nombre` en todas las clases hijas.
+
+- **Ejemplo:**
+![[Pasted image 20260615082158.png]]
+
+### 2. En la Sobreescritura de Métodos ➡️ Para SUMAR comportamiento
+
+Se usa cuando la clase hija quiere hacer **lo mismo que hacía el padre, pero añadiendo un extra**. En lugar de borrar lo que hacía el padre, primero lo ejecutas con `super()` y abajo le pones las líneas nuevas de la hija.
+
+- **Ejemplo:**
+![[Pasted image 20260615082230.png]]
+
+## 🚫 ¿Cuándo NO se usa `super()`?
+
+No lo usas cuando quieres que la clase hija **reemplace por completo** la acción del padre (como en el ejercicio corto de las notificaciones que te acabo de dejar). Si el padre dice _"Enviando notificación genérica..."_ pero tú solo quieres que se vea _"📧 Email enviado..."_, simplemente **no pones `super()`** en el método de la hija y listo.
+
+
+
