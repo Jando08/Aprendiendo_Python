@@ -241,4 +241,67 @@ Se usa cuando la clase hija quiere hacer **lo mismo que hacía el padre, pero a�
 No lo usas cuando quieres que la clase hija **reemplace por completo** la acción del padre (como en el ejercicio corto de las notificaciones que te acabo de dejar). Si el padre dice _"Enviando notificación genérica..."_ pero tú solo quieres que se vea _"📧 Email enviado..."_, simplemente **no pones `super()`** en el método de la hija y listo.
 
 
+# Martes 16 de Junio del 2026
+
+## 🎭 ¿Qué es la Abstracción?
+
+En el mundo real, tú usas la abstracción todos los días sin darte cuenta. Piensa en tu laptop o en un carro: para manejar un carro, tú solo necesitas saber cómo usar el volante, el acelerador y el freno. **No necesitas ser un ingeniero mecánico** ni saber exactamente cómo interactúan los pistones con la gasolina dentro del motor para poder llegar a tu destino.
+
+En programación es exactamente lo mismo: **La Abstracción consiste en ocultar los detalles complejos de cómo funcionan las cosas por dentro y mostrarle al usuario (o a ti mismo en el futuro) solo las herramientas esenciales que necesita usar.**
+
+## 🛠️ ¿Cómo se aplica en Python? (Clases Abstractas)
+
+Para aplicar la abstracción en Python, usamos algo llamado **Clases Abstractas**. Imagina que una clase abstracta es como un **contrato obligatorio** o una "plantilla" de la cual nadie puede crear un objeto directamente, pero que obliga a todas las clases hijas a tener ciertos métodos sí o sí.
+
+Para hacerlo, Python nos pide importar una herramienta del sistema llamada `abc` (_Abstract Base Classes_).
+
+### 💻 Mira la sintaxis básica en código:
+
+Imagina que estás diseñando un sistema para diferentes tipos de **Bases de Datos** (PostgreSQL, MySQL, etc.). Todas las bases de datos se deben conectar y desconectar, pero cada una lo hace con código interno muy diferente. Creamos la plantilla abstracta:
+
+![[Pasted image 20260616093723.png]]
+
+> ⚠️ **Regla de oro de la Abstracción:** Si tú intentas hacer `db = BaseDeDatos()`, Python te va a lanzar un tremendo error en la terminal. Las clases abstractas **no se pueden instanciar** (no puedes crear objetos de ellas). Solo sirven para ser heredadas.
+
+## 🐣 Obligando a las clases hijas a cumplir el contrato
+
+Ahora, si creas la clase para **PostgreSQL**, estás obligado a escribir los métodos `conectar` y `desconectar`. Si se te olvida poner alguno, Python va a bloquear el programa y no te va a dejar avanzar. Esto asegura que tu código sea ultra ordenado y que nunca se te pase programar una función vital.
+
+![[Pasted image 20260616093750.png]]
+
+
+## 🔍 ¿Qué demonios significa cada parte?
+
+En Python, cada vez que corres un archivo, el sistema crea unas variables ocultas por detrás. Una de ellas se llama `__name__` (con doble guion bajo).
+
+Esta variable guarda el nombre de **cómo se ejecutó el archivo**. Hay dos sopas:
+
+### 1. Si corres el archivo directamente en tu terminal (`python mi_script.py`)
+
+Python dice: _"Ok, el usuario le dio play directamente a este archivo"_. Por lo tanto, de forma automática, le asigna el valor de `"__main__"` (que significa "principal") a esa variable oculta.
+
+- La condición se cumple: `__name__ == "__main__"` es **Verdadero** (True) y todo lo que esté adentro de ese `if` **se ejecuta**.
+
+### 2. Si IMPORTAS el archivo dentro de otro (`from mi_script import MiClase`)
+
+Imagina que mañana estás programando un juego principal y traes tus consolas importando el archivo. Python dice: _"Ojo, este archivo solo lo están usando como biblioteca o pieza de rompecabezas, no lo corrieron directamente"_. Por lo tanto, el valor de `__name__` ya no es `"__main__"`, sino el nombre del archivo (ej. `"consolas_abstraccion"`).
+
+- La condición **NO** se cumple y todo lo que esté adentro del `if` **se ignora por completo**.
+    
+
+## 💡 ¿Por qué es útil? (El problema que evita)
+
+Imagina que en tu archivo de las consolas dejas las pruebas de `switch_jando.encender_consola()` sueltas hasta abajo, sin el `if`.
+
+## 📝 El resumen para tus notas
+
+- **¿Para qué sirve?** Para separar el código que define tus herramientas (clases, funciones) del código que hace las pruebas (crear objetos, prints).
+    
+- **¿Cuándo se ejecuta?** Solo cuando ejecutas ese archivo específico de forma directa en la consola.
+    
+- **¿Cuándo se ignora?** Cuando ese archivo es importado por otro script.
+    
+
+Es como el control de calidad de tus archivos, bro. Así mantienes tus clases reutilizables en cualquier parte de tu sistema sin arrastrar "basura" de prints viejos.
+
 
