@@ -304,4 +304,84 @@ Imagina que en tu archivo de las consolas dejas las pruebas de `switch_jando.enc
 
 Es como el control de calidad de tus archivos, bro. Así mantienes tus clases reutilizables en cualquier parte de tu sistema sin arrastrar "basura" de prints viejos.
 
+## 📊 ¿Por qué le importa esto a un Data Scientist?
 
+En la Ciencia de Datos, los datos casi nunca te van a llegar limpios en variables bonitas. Te van a llegar en un archivo de texto, en un CSV, o en un string todo amontonado que viene de una base de datos o una API web.
+
+Normalmente, tú crearías un objeto pasándole los datos limpios uno por uno: `empleado = ProcesadorDatos("Jando", 20, "Software")`
+
+¿Pero qué pasa si el dato te llega en una sola línea de texto separada por guiones, así: `"Alejandro-20-DataScience"`?
+
+En lugar de romperte la cabeza limpiando el texto afuera en tu script principal, usas un **`@classmethod`**. Este amigo sirve como una **fábrica secundaria de objetos**. Recibe el texto sucio, lo limpia por dentro, y te devuelve el objeto ya construido y listo para analizar.
+
+## 💻 El Código: Tu primer Limpiador de Datos (Parser)
+
+Vamos a crear una clase que simule la ingesta de datos de usuarios de una plataforma. Mira cómo usamos la etiqueta `@classmethod` y la palabra clave `cls` (que significa "Clase", ya no usamos `self` porque el objeto aún no existe, lo vamos a fabricar apenas).
+
+Crea el archivo `parser_datos.py` dentro de tu carpeta `04_poo_avanzado/` y métele este código:
+
+![[Pasted image 20260617121604.png]]
+![[Pasted image 20260617121622.png]]
+¡Claro que sí, pa! Es una excelente estrategia. Tener un "algoritmo mental" paso a paso es lo que usan los mejores analistas de datos para no trabarse cuando el código se pone complejo.
+
+Aquí tienes la guía definitiva, explicada de forma súper sencilla y directa, para que la guardes en tu Obsidian y la leas cada vez que te enfrentes a un problema donde tengas que transformar texto sucio en datos estructurados usando un `@classmethod`.
+
+## 🧭 Guía paso a paso para dominar el `@classmethod` (Ingesta de Datos)
+
+### 📌 Paso 1: Identificar tus "Datos de Entrada"
+
+Antes de escribir una sola línea de código, mira el texto sucio que te están dando y hazte dos preguntas:
+
+1. ¿Qué datos vienen ahí escondidos? (Ej: un nombre, un precio, una fecha).
+    
+2. ¿Qué símbolo los está separando? (¿Es un guion `-`, una coma `,`, una barra `|`?).
+    
+
+### 📌 Paso 2: Diseñar la "Caja Contenedora" (El Constructor `__init__`)
+
+Crea tu clase normal y define tu constructor `def __init__(self, ...):`.
+
+- Asegúrate de que reciba como parámetros **únicamente los datos individuales y limpios** que identificaste en el Paso 1.
+    
+- **🚨 Regla de oro de Data Science:** Si alguno de los datos es un número, conviértelo de una vez aquí usando `int()` o `float()`. No los dejes como texto.
+    
+
+### 📌 Paso 3: Crear el "Limpiador Automático" (El `@classmethod`)
+
+Arriba de tu función de limpieza, escribe la etiqueta **`@classmethod`**.
+
+- Define la función recibiendo dos cosas obligatorias: `(cls, texto_linea)`.
+    
+- _Recuerda:_ Usamos `cls` (Clase) porque el objeto todavía no existe, ¡apenas lo vamos a fabricar aquí adentro!
+    
+
+### 📌 Paso 4: Romper y Separar el Texto
+
+Adentro de tu `@classmethod`, usa el truco de la motosierra: `.split()`.
+
+- Crea una variable (ej: `datos_limpios = texto_linea.split('TU_SEPARADOR')`).
+    
+- Extrae cada dato de la lista usando sus posiciones de arreglo: `[0]`, `[1]`, `[2]`, etc., y guárdalos en variables con nombres claros.
+    
+
+### 📌 Paso 5: Darle Vida al Objeto (`return cls`)
+
+Al final de tu `@classmethod`, pon la línea mágica:
+
+- `return cls(variable1, variable2, variable3)`
+    
+- Esto agarra los datos que acabas de desempaquetar y se los manda directo al constructor del **Paso 2** para que fabrique el objeto limpio. ¡Misión cumplida para la fábrica!
+    
+
+### 📌 Paso 6: El Interruptor de Seguridad y las Pruebas
+
+Vete hasta abajo del archivo (pegado a la izquierda) y escribe tu bloque seguro: `if __name__ == "__main__":`
+
+- Crea variables con los strings sucios de prueba.
+    
+- Llama a tu clase seguido de tu método especializado para crear tus objetos: `objeto_1 = TuClase.tu_metodo_classmethod(string_sucio)`.
+    
+
+### 📌 Paso 7: ¡Hacer Ciencia de Datos!
+
+Mete tus objetos limpios dentro de una lista `[]`, aviéntate un ciclo `for` para recorrerlos y empieza a hacer la magia analítica: suma totales, calcula promedios, filtra por estados o busca errores.

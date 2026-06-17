@@ -48,4 +48,4 @@ sonido_retro.reproducir()
 
 # probar modificar el volumen usando la @property 
 sonido_retro.volumen = 95
-print(f"🔊 El nuevo volumen del efecto retro es: {sonido_retro.volumen}%")
+print(f"El nuevo volumen del efecto retro es: {sonido_retro.volumen}%")

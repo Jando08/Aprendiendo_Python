@@ -1,0 +1,47 @@
+ROADMAP PYTHON
+NIVEL 1: Fundamentos
+Variables
+Tipos de Datos
+Operadores
+Input y Output
+
+NIVEL 2: Control de flujo
+if
+else
+elif
+match (opcional)
+
+NIVEL 3: Bucles
+for 
+while
+break
+continue
+
+NIVEL 4: Funciones
+definir funciones
+parametros
+retorno de valores
+
+NIVEL 5: Estructura de datos
+listas
+tuplas
+diccionarios
+sets
+
+NIVEL 6: Programacion orientada a objetos
+clases
+objetos
+herencia
+encapsulacion
+
+NIVEL 7: Librerias
+pandas
+numpy
+matplotlib
+
+NIVEL 8: Proyectos
+calculadora
+gestor de tareas
+web scraper
+analisis de datos
+
