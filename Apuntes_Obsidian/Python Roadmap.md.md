@@ -12,5 +12,6 @@ Este es el mapa central de mi aprendizaje en Python. Desde aquí controlo los te
 * [[07_Diccionarios]] - Permite agrupar toda la informacion de un solo objeto o entidad
 * [[08_Modulararizacion]] - Dividir tu codigo en varios archivos independientes y luego conectarlos entre si.
 * [[09_Introduccion_POO]] - Reutilzar codigo de manera limpia
+* [[10_NumPy]] - NumPy el rey de los datos, manejar los datos con mejor eficacia
 
 ---
