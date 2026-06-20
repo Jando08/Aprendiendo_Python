@@ -14,5 +14,6 @@ Este es el mapa central de mi aprendizaje en Python. Desde aquí controlo los te
 * [[09_Introduccion_POO]] - Reutilzar codigo de manera limpia
 * [[10_NumPy]] - NumPy el rey de los datos, manejar los datos con mejor eficacia
 * [[11_Pandas]] - Reina en la Ciencia de Datos para la manipulacion y analisis de datos.
+* [[12_Ingesta_de_Datos]] - Consiste en tomar datos de fuentes externas (como archivos locales, bases de datos o APIs) y meterlos a tu entorno de código para poder trabajar con ellos.
 
 ---

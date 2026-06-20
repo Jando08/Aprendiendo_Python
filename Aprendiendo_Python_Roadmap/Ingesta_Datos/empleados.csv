@@ -1,0 +1,6 @@
+id,nombre,departamento,salario,remoto
+1,Alejandro,Data Science,85000,True
+2,Erick,Sistemas,62000,False
+3,Milan,Mecatronica,75000,True
+4,Laura,Data Science,90000,True
+5,Carlos,Finanzas,55000,False

@@ -1,0 +1,8 @@
+id,endpoint,metodo,tiempo_ms,codigo_estado
+1,/usuarios,GET,120,200
+2,/login,POST,450,200
+3,/productos,GET,85,200
+4,/pagar,POST,1200,500
+5,/usuarios,GET,95,200
+6,/reportes,GET,2500,200
+7,/login,POST,380,401
