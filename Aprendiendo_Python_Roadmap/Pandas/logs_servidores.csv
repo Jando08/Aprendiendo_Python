@@ -1,0 +1,7 @@
+id,aplicación,entorno,uso_ram_gb,costo_por_hora
+1,API Usuarios,Producción,16,4.5
+2,Frontend Web,Producción,8,2.2
+3,Test Runner,Testing,4,1.1
+4,Modelos IA,Producción,32,12.0
+5,Web Scraper,Testing,8,2.5
+6,CI/CD Pipeline,Desarrollo,4,0.8

@@ -117,3 +117,43 @@ Si quieres verte como un verdadero analista Pro, en lugar de sacar la media, el 
 4. **Resumen Estadístico:** `df["Columna"].describe()` para obtener métricas clave automáticas.
 
 
+## 📊 ¿Qué es el `groupby` y para qué sirve?
+
+En el mundo real, los jefes o los clientes no quieren ver filas individuales; quieren ver **resúmenes ejecutivos**. Quieren respuestas a preguntas como:
+
+- ¿Cuánto se vende _por cada categoría_ de producto?
+    
+- ¿Cuál es el salario promedio _por cada departamento_ de la empresa?
+    
+- ¿Cuántos goles se meten _por cada equipo_ de la liga?
+    
+
+Para resolver esto en Pandas de forma ultra veloz, usamos el método `.groupby()`. Este comando hace un proceso bellísimo que en Ciencia de Datos conocemos como **Split-Apply-Combine** (Dividir - Aplicar - Combinar):
+
+1. **Split (Dividir):** Separa los datos en grupos basados en una columna (ej. agrupa por "departamento").
+    
+2. **Apply (Aplicar):** Ejecuta una función matemática a cada grupo por separado (ej. saca el promedio `.mean()` o suma `.sum()`).
+    
+3. **Combine (Combinar):** Junta los resultados de todos los grupos y te los entrega en una tabla de resumen limpia.
+
+
+### 📝 Abre Obsidian: Concepto Clave de `groupby`
+
+Es súper importante que anotes esto en tu nota de hoy (`04_groupby_y_agregaciones.md`) porque es un comportamiento de Pandas que a veces confunde a la gente:
+
+> ⚠️ **El Índice Cambiante:** Cuando agrupas por una columna (en este caso `"categoria"`), esa columna **deja de ser una columna normal y se convierte en el nuevo Índice (Index)** de la tabla. Por eso en la terminal ves que el nombre `categoria` aparece un renglón más abajo que `cantidad` e `ingreso`.
+
+Si más adelante quisieras resetear la tabla para que `categoria` vuelva a ser una columna común y corriente (con sus índices numéricos `0, 1, 2`), solo le agregas `.reset_index()` al final:
+![[Pasted image 20260623121855.png]]
+
+## 🛠️ La Sintaxis de un Analista Senior: El Método `.agg()`
+
+En lugar de poner `.sum()` o `.mean()` al final, abres `.agg()` y le pasas un **diccionario de Python**. En ese diccionario, la _llave_ es la columna que quieres calcular, y el _valor_ es la operación que le vas a aplicar (en texto).
+![[Pasted image 20260623122044.png]]
+
+## 🛠️ La Herramienta Extra: `.sort_values()`
+
+Si quieres ordenar tu resumen ejecutivo con base en una de las columnas que acabas de calcular, la sintaxis se ve así:
+
+![[Pasted image 20260623122833.png]]
+
