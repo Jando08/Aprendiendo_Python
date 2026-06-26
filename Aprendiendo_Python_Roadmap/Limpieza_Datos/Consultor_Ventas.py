@@ -17,3 +17,8 @@ print("=== REPORTE FINAL DE VENTAS DE COPPEL")
 print(df_ventas_limpio)
 print("_" * 80)
 print(f"El dinero total recaudado por las ventas fue un total de: ${total_venta:,.2f} MXN")
+
+
+# Apilado vertical (uno abajo del otro)
+df_total = pd.concat([df_enero, df_febrero], ignore_index=True)
+
