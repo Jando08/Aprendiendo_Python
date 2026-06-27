@@ -157,3 +157,45 @@ Si quieres ordenar tu resumen ejecutivo con base en una de las columnas que acab
 
 ![[Pasted image 20260623122833.png]]
 
+## 🐼 4. El Siguiente Nivel: Pandas + SQLAlchemy (Análisis Profesional) 
+Para proyectos modernos de Data Science en Python, `pd.read_sql_query()` requiere un motor de conexión gestionado por **SQLAlchemy** para evitar advertencias de compatibilidad (`UserWarning`). 
+### ⚙️ Instalación del Entorno Analítico 
+pip install pandas sqlalchemy psycopg2-binary
+
+
+## 🔍 5. Filtrado de Datos con Máscaras Booleanas en Pandas 
+En lugar de escribir múltiples cláusulas `WHERE` en SQL, Pandas permite filtrar datos en memoria utilizando indexación condicional. 
+### 📝 Sintaxis de Filtrado 
+# Sintaxis base:
+dataframe[dataframe["columna"] condicion]
+
+
+
+## 🔗 Combinar DataFrames con `.merge()`
+
+En Ciencia de Datos, la información suele estar fragmentada en múltiples tablas para evitar la duplicidad (normalización). El método `.merge()` de Pandas funciona exactamente igual que un **`JOIN` en SQL**, permitiendo cruzar dos tablas mediante una columna en común (llave).
+
+### 🛠️ Tipos de Unión (`how`)
+* **`inner` (Por defecto):** Conserva solo los registros cuyas llaves existen en **ambas** tablas. Si un ID no coincide, se descarta.
+* **`left`:** Conserva todos los registros de la tabla izquierda y trae las coincidencias de la derecha. Si no hay coincidencia, rellena con `NaN`.
+* **`right`:** Conserva todos los de la derecha y trae las coincidencias de la izquierda.
+* **`outer`:** Conserva absolutamente todo. Si no hay coincidencia en algún lado, rellena con `NaN`.
+
+### 💻 Sintaxis Estándar
+```python
+df_resultado = df_izquierda.merge(df_derecha, on="columna_compartida", how="inner")
+```
+
+## 📑 Nota 2: `06_concat_pandas.md`
+## 🥞 Concatenar DataFrames con `.concat()`
+A diferencia de `.merge()`, que combina columnas mediante una llave, `pd.concat()` se utiliza para **amontonar o apilar** DataFrames que comparten exactamente la misma estructura de columnas (por ejemplo, reportes mensuales o diarios). 
+### 💡 Puntos Clave
+* **Es una función de Pandas:** Se invoca como `pd.concat()`, no como un método del DataFrame. * **Recibe una lista:** Los DataFrames a unir se deben pasar dentro de corchetes `[...]`. * **`ignore_index=True`:** Obligatorio si quieres que Pandas regenere el índice (`0, 1, 2...`) secuencialmente, evitando que se repitan los índices de los archivos originales. 
+### 💻 Sintaxis Estándar 
+![[Pasted image 20260625222358.png]]
+
+
+### 🧠 En resumen para tu Obsidian:
+
+> 📌 **`ignore_index=True`**: Se usa al concatenar tablas (`pd.concat`) para evitar índices duplicados. Reinicia la numeración de las filas a un rango limpio que va desde `0` hasta el total de filas menos uno ($N-1$).
+
